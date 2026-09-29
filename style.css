@@ -69,3 +69,8 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clam
   .fruit.today .halo,.fruit.pop{animation:none}
   .sheet,.sheet-bg,.fruit{transition:none}
 }
+
+.topbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+.pill{background:var(--card);border-radius:999px;padding:7px 15px;font-weight:700;font-size:.92rem;box-shadow:0 4px 14px rgba(90,60,30,.08)}
+.pill.fire{color:#C4502A}
+.streak-note{margin:0 0 6px;font-size:.88rem;color:var(--ink-soft);min-height:1.2em}
