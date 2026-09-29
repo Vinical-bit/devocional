@@ -1,0 +1,71 @@
+:root{
+  --sky1:#F7EFE2;--sky2:#EADCC4;
+  --ink:#3B2E26;--ink-soft:#7A665A;
+  --leaf1:#7E9460;--leaf2:#6A8250;--leaf3:#93A874;
+  --trunk:#7A5A42;--ground:#D8C6A8;
+  --fruit:#C8453A;--fruit-hi:#E57A62;--bud:#E6EDD2;
+  --card:#FFFBF5;--accent:#6E7B4F;--glow:#F2C14E;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --sky1:#1D1915;--sky2:#14110E;--ink:#F4E8DA;--ink-soft:#BFAA98;
+    --leaf1:#4F6338;--leaf2:#42552F;--leaf3:#5F7545;--trunk:#5C4331;--ground:#2E261F;
+    --bud:#56643F;--card:#2A221C;--accent:#9FAE78;
+  }
+}
+:root[data-theme="dark"]{
+  --sky1:#1D1915;--sky2:#14110E;--ink:#F4E8DA;--ink-soft:#BFAA98;
+  --leaf1:#4F6338;--leaf2:#42552F;--leaf3:#5F7545;--trunk:#5C4331;--ground:#2E261F;
+  --bud:#56643F;--card:#2A221C;--accent:#9FAE78;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:"Karla",system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(180deg,var(--sky1),var(--sky2));background-color:var(--sky2);
+  overflow-x:hidden;
+}
+main{min-height:100%;display:flex;flex-direction:column;align-items:center;padding:24px 18px 30px;text-align:center}
+.kicker{margin:0;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;font-weight:700;color:var(--accent)}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(2.2rem,9vw,3.2rem);margin:4px 0 2px;line-height:1.05}
+.gal{margin:0 auto;max-width:34ch;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.08rem;color:var(--ink-soft);line-height:1.35}
+.gal cite{display:block;font-style:normal;font-family:"Karla",sans-serif;font-size:.78rem;margin-top:2px}
+
+.tree{width:min(94vw,520px);margin-top:8px}
+.tree svg{width:100%;height:auto;display:block;overflow:visible}
+.fruit{cursor:pointer;transform-box:fill-box;transform-origin:50% 0;transition:transform .3s cubic-bezier(.3,1.7,.5,1)}
+.fruit:hover,.fruit:focus-visible{transform:scale(1.18)}
+.fruit:focus{outline:none}
+.fruit:focus-visible .skin{stroke:var(--ink);stroke-width:2}
+.fruit.today .halo{animation:pulse 2.4s ease-in-out infinite}
+.fruit.pop{animation:swing .7s ease}
+@keyframes pulse{0%,100%{opacity:.15;r:15}50%{opacity:.45;r:19}}
+@keyframes swing{20%{transform:rotate(14deg) scale(1.2)}50%{transform:rotate(-10deg) scale(1.2)}80%{transform:rotate(4deg) scale(1.1)}}
+.count{margin:6px 0 0;color:var(--ink-soft);font-size:.95rem}
+
+.sheet-bg{position:fixed;inset:0;background:rgba(30,20,12,.35);opacity:0;pointer-events:none;transition:opacity .3s;z-index:4}
+.sheet-bg.show{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;left:50%;bottom:0;z-index:5;width:min(100%,560px);max-height:86vh;overflow:auto;
+  background:var(--card);border-radius:24px 24px 0 0;padding:26px 24px calc(28px + env(safe-area-inset-bottom,0px));
+  text-align:left;box-shadow:0 -10px 40px rgba(60,40,20,.2);
+  transform:translate(-50%,105%);transition:transform .45s cubic-bezier(.2,.9,.3,1);
+}
+.sheet.show{transform:translate(-50%,0)}
+.close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:transparent;color:var(--ink-soft);font-size:1.4rem;cursor:pointer}
+.close:focus-visible{outline:2px solid var(--accent)}
+.meta{margin:0 0 4px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.sheet blockquote{margin:6px 0 18px;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;line-height:1.2;font-weight:600}
+.sheet blockquote cite{display:block;font-family:"Karla",sans-serif;font-size:.85rem;font-weight:400;color:var(--ink-soft);margin-top:6px;font-style:normal}
+.sheet h3{margin:0 0 6px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.sheet p{margin:0 0 18px;line-height:1.6;font-size:1.03rem}
+.practice{background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:14px;padding:14px 16px}
+.practice p{margin:0}
+
+@media (prefers-reduced-motion: reduce){
+  .fruit.today .halo,.fruit.pop{animation:none}
+  .sheet,.sheet-bg,.fruit{transition:none}
+}

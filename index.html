@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fruto de cada dia — Ana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="kicker">O maná da Ana</p>
+  <h1>Fruto de cada dia</h1>
+  <p class="gal">Mas o fruto do Espírito é: caridade, gozo, paz, longanimidade, benignidade, bondade, fé, mansidão, temperança.<cite>Gálatas 5:22 (ARC)</cite></p>
+
+  <div class="tree">
+    <svg viewBox="0 0 400 420" id="svg" role="group" aria-label="Árvore com os frutos de cada dia">
+      <ellipse cx="200" cy="404" rx="150" ry="14" fill="var(--ground)"/>
+      <path d="M186,404 C190,340 184,300 176,262 L224,262 C216,300 210,340 214,404 Z" fill="var(--trunk)"/>
+      <path d="M182,280 C160,250 128,236 100,226" stroke="var(--trunk)" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M218,280 C240,248 272,236 304,222" stroke="var(--trunk)" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M200,268 C200,230 200,200 202,160" stroke="var(--trunk)" stroke-width="13" fill="none" stroke-linecap="round"/>
+      <g>
+        <circle cx="200" cy="140" r="104" fill="var(--leaf2)"/>
+        <circle cx="112" cy="190" r="76" fill="var(--leaf1)"/>
+        <circle cx="290" cy="186" r="78" fill="var(--leaf1)"/>
+        <circle cx="150" cy="98" r="70" fill="var(--leaf1)"/>
+        <circle cx="258" cy="96" r="72" fill="var(--leaf3)"/>
+        <circle cx="200" cy="60" r="56" fill="var(--leaf3)"/>
+        <circle cx="200" cy="210" r="70" fill="var(--leaf3)"/>
+      </g>
+      <g id="slots"></g>
+    </svg>
+  </div>
+  <p class="count" id="count"></p>
+</main>
+
+<div class="sheet-bg" id="bg"></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetVerse">
+  <button class="close" id="close" aria-label="Fechar">×</button>
+  <p class="meta" id="sheetMeta"></p>
+  <blockquote id="sheetVerse"></blockquote>
+  <h3>Meditação</h3>
+  <p id="sheetMed"></p>
+  <div class="practice">
+    <h3>Pra praticar hoje</h3>
+    <p id="sheetPrac"></p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
